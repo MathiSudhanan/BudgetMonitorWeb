@@ -1,0 +1,87 @@
+﻿@model BudgetMonitor.Web.Models.User
+@{
+    var title = "Create User";
+}
+
+<h1>Upsert</h1>
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <div class="row px-2 mx-2 background-white border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Id != 0)
+        {
+            <input type="hidden" asp-for="Id" />
+            title = "Edit User";
+        }
+        <div class="col-12 p-3">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Secret"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Secret" class="form-control" />
+                    <span asp-validation-for="Secret" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ConfirmSecret"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ConfirmSecret" class="form-control" />
+                    <span asp-validation-for="ConfirmSecret" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="EmailId"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="EmailId" class="form-control" />
+                    <span asp-validation-for="EmailId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Picture"></label>
+                </div>
+                <div class="col-8">
+                    <input type="file" asp-for="Picture" id="userImage" multiple class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <div class="col-4 offset-4">
+                    <button type="submit" class="btn btn-primary form-control">
+                        @(Model.Id==0?"Create":"Update")
+                    </button>
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 text-right" style="width:250Px">
+            @if (Model.Picture != null)
+            {
+                var base64 = Convert.ToBase64String(Model.Picture);
+                var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                <img src="@imgSrc" width="100%"></img>
+
+            }
+        </div>
+
+    </div>
+</form>
+

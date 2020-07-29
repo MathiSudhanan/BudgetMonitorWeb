@@ -1,0 +1,9 @@
+﻿.form__input {
+    margin: 0em;
+/*    display: normal;*/
+}
+
+form {
+    
+    display:grid;
+}

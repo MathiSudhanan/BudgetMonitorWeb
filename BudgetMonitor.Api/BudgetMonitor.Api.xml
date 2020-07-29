@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BudgetMonitor.Api</name>
+    </assembly>
+    <members>
+        <member name="T:BudgetMonitor.Api.Controllers.AccountController">
+            <summary>
+            Account Controller
+            </summary>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.AccountController.#ctor(BudgetMonitor.Business.IUser)">
+            <summary>
+            constructor 
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.AccountController.AuthenticateUser(BudgetMonitor.Entities.AuthenticateDTO)">
+            <summary>
+            Method : Authenticate User
+            </summary>
+            <param name="authenticateDTO"></param>
+            <returns>UserName and token.</returns>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.AccountController.RegisterUser(BudgetMonitor.Entities.UserDTO)">
+            <summary>
+            Method : Register User
+            </summary>
+            <param name="userDTO"></param>
+            <returns>UserName and token.</returns>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.AccountController.ModifyUser(BudgetMonitor.Entities.UserDTO)">
+            <summary>
+            Method : Modify User
+            </summary>
+            <param name="userDTO"></param>
+            <returns>UserName and token.</returns>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.AccountController.ChangePassword(BudgetMonitor.Entities.ChangePasswordDTO)">
+            <summary>
+            Method : Change Password
+            </summary>
+            <param name="changePasswordDTO"></param>
+            <returns>UserName and token.</returns>
+        </member>
+        <member name="T:BudgetMonitor.Api.Controllers.TransactionController">
+            <summary>
+            Controller to manage the transaction.
+            </summary>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.TransactionController.#ctor(BudgetMonitor.Business.ITransaction)">
+            <summary>
+            Constructor for transaction controller
+            </summary>
+            <param name="transaction"></param>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.TransactionController.Get">
+            <summary>
+            Get list of transactions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.TransactionController.GetTransaction(System.Int32)">
+            <summary>
+            Get individual transaction.
+            </summary>
+            <param name="id"> The id of the transaction. </param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.TransactionController.Post(BudgetMonitor.Entities.TransactionUpdateDTO)">
+            <summary>
+            Create a transaction.
+            </summary>
+            <param name="transaction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.TransactionController.Patch(System.Int32,BudgetMonitor.Entities.TransactionUpdateDTO)">
+            <summary>
+            Update the transaction
+            </summary>
+            <param name="transactionId">Id of the transaction.</param>
+            <param name="transaction">Transaction object instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.TransactionController.Delete(System.Int32)">
+            <summary>
+            Delete the transaction.
+            </summary>
+            <param name="id">id of the transaction.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BudgetMonitor.Api.Controllers.TransactionV2Controller">
+            <summary>
+            Controller to manage the transaction.
+            </summary>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.TransactionV2Controller.#ctor(BudgetMonitor.Business.ITransaction)">
+            <summary>
+            Constructor for transaction controller
+            </summary>
+            <param name="transaction"></param>
+        </member>
+        <member name="M:BudgetMonitor.Api.Controllers.TransactionV2Controller.Get">
+            <summary>
+            Get list of transactions.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
