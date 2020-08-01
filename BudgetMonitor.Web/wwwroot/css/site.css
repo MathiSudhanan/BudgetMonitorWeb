@@ -88,3 +88,7 @@ table.dataTable tbody tr {
 a.text-dark:hover, a.text-dark:focus {
     color: #fff !important;
 }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color:#fff !important;
+}

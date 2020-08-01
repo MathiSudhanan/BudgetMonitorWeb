@@ -30,8 +30,22 @@ namespace BudgetMonitor.Web.Controllers
         {
             var bearerToken = HttpContext.Session.GetString("JWToken");
             var result = await repository.GetAllAsync(StaticDetails.TransactionAPIPath, bearerToken);
-            return Json(new { data = result });
+            return Json(new { data = result});
 
+        }
+        public async Task<IActionResult> GetAllIncomeTransactions()
+        {
+            var bearerToken = HttpContext.Session.GetString("JWToken");
+            var result = await repository.GetAllAsync(StaticDetails.TransactionAPIPath, bearerToken);
+            return Json(new { data =  result.Where(x=>x.Amount>0)});
+
+        }
+
+        public async Task<IActionResult> GetAllExpenseTransactions()
+        {
+            var bearerToken = HttpContext.Session.GetString("JWToken");
+            var result = await repository.GetAllAsync(StaticDetails.TransactionAPIPath, bearerToken);
+            return Json(new { data = result.Where(x => x.Amount < 0) });
         }
 
         public async Task<IActionResult> Upsert(int? id)

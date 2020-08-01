@@ -34,9 +34,9 @@ namespace BudgetMonitor.Web.Controllers
         {
             var obj = await accountRepository.LoginAsync(StaticDetails.UserAPIPath + "AuthenticateUser/", authenticationModel);
             if (obj.Token == null)
-                return View();
+                return Unauthorized();
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-            identity.AddClaim(new Claim(ClaimTypes.Name, obj.UserName));
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, obj.UserName));
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
             TempData["alert"] = "Welcome " + obj.UserName + "!";

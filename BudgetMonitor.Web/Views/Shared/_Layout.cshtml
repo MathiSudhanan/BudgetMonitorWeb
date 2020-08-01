@@ -10,14 +10,18 @@
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link href="~/css/Bootstrapslate.min.css" rel="stylesheet" />
     @*<link href="~/css/Symantic.Cyborg.min.css" rel="stylesheet" />*@
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    @*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"*@ />
+
+    <link href="~/css/datatables.min.css" rel="stylesheet" />
+    <link href="~/css/Jquery.UI.min.css" rel="stylesheet" />
+    <link href="~/css/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav @*class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary"*@ class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav @*class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary"*@ class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light navbar-fixed-top bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Budget Monitor</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -29,7 +33,7 @@
 
 
                         @if (httpAccessor.HttpContext.Session.GetString("JWToken") != null &&
-                     httpAccessor.HttpContext.Session.GetString("JWToken").Length > 0)
+                httpAccessor.HttpContext.Session.GetString("JWToken").Length > 0)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -57,7 +61,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @if(TempData["alert"]!=null)
+            @if (TempData["alert"] != null)
             {
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     @TempData["alert"]
@@ -78,11 +82,16 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://kit.fontawesome.com/e19c476714.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://kit.fontawesome.com/e19c476714.js"></script>*@
+    <script src="~/js/Jquery.ui.min.js"></script>
+    <script src="~/js/datatables.min.js"></script>
+    <script src="~/js/toastr.min.js"></script>
+    <script src="~/js/Sweetalert.min.js"></script>
+    <script src="~/js/fontawesome.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

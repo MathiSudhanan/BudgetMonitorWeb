@@ -21,7 +21,7 @@ namespace BudgetMonitor.Business
         public async Task<bool> Add(TransactionUpdateDTO entity)
         {
             var transactionEntity = Mapper.Map<TransactionEntity>(entity);
-            transactionEntity.UserId = Convert.ToInt32(HttpContextAccessor.HttpContext.User.Claims.First(x => x.Type == ClaimTypes.Name).Value);
+            transactionEntity.UserId = Convert.ToInt32(HttpContextAccessor.HttpContext.User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
             var context = HttpContextAccessor.HttpContext;
             await UnitOfWork.TransactionRepository.Insert(transactionEntity);
             return UnitOfWork.Save() > 0;
