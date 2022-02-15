@@ -1,2 +1,2 @@
 # BudgetMonitorWeb
-BudgetMonitor Web API and MVC with .Net Core
+BudgetMonitor Web API, MVC with .Net Core and PostGreSQL
